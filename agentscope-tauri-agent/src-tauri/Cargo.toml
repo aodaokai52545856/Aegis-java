@@ -1,0 +1,27 @@
+[package]
+name = "agentscope-tauri-agent"
+version = "0.1.0"
+description = "Aegis Agent desktop client"
+authors = ["yunzhi"]
+edition = "2021"
+
+[lib]
+name = "agentscope_tauri_agent_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+# Pin time <0.3.52 — cookie 0.18.1 breaks with time 0.3.52+ (tauri-apps/tauri#15615)
+time = "=0.3.51"
+
+[profile.release]
+panic = "abort"
+codegen-units = 1
+lto = true
+opt-level = "s"
+strip = true

@@ -1,0 +1,9 @@
+# Copy to application-local.yml (same directory) and fill in your DeepSeek API key.
+# application-local.yml is optional and should not be committed.
+aegis:
+  deepseek:
+    api-keys:
+      - label: default
+        secret: sk-74e10081b73240a8984e0c654ff33656
+        enabled: true
+        priority: 10

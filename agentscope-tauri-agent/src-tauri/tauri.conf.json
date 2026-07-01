@@ -1,0 +1,69 @@
+{
+
+  "$schema": "https://schema.tauri.app/config/2",
+
+  "productName": "Aegis",
+
+  "version": "0.1.0",
+
+  "identifier": "com.yunzhi.aegis.agent",
+
+  "build": {
+
+    "beforeDevCommand": "npm run dev",
+
+    "devUrl": "http://localhost:1420",
+
+    "beforeBuildCommand": "npm run build",
+
+    "frontendDist": "../dist"
+
+  },
+
+  "app": {
+
+    "windows": [
+
+      {
+
+        "label": "main",
+
+        "title": "Aegis",
+
+        "width": 1100,
+
+        "height": 760,
+
+        "minWidth": 640,
+
+        "minHeight": 480,
+
+        "resizable": true,
+
+        "decorations": false,
+
+        "shadow": true,
+
+        "backgroundColor": "#181818"
+
+      }
+
+    ],
+
+    "security": {
+
+      "csp": null
+
+    }
+
+  },
+
+  "bundle": {
+
+    "active": false
+
+  }
+
+}
+
+
