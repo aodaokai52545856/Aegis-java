@@ -1,0 +1,35 @@
+server:
+  port: 8010
+
+spring:
+  config:
+    import: optional:classpath:application-local.yml
+  ai:
+    openai:
+      api-key: ${DEEPSEEK_API_KEY:${aegis.admin-token}}
+      base-url: ${aegis.deepseek.base-url}
+      chat:
+        options:
+          model: ${aegis.deepseek.default-model}
+
+aegis:
+  admin-token: sk-74e10081b73240a8984e0c654ff33656
+  deepseek:
+    base-url: https://api.deepseek.com
+    default-model: deepseek-chat
+    api-keys:
+      - label: default
+        secret: ${DEEPSEEK_API_KEY:}
+        enabled: true
+        priority: 10
+    models:
+      - id: deepseek-chat
+        name: DeepSeek Chat
+      - id: deepseek-reasoner
+        name: DeepSeek Reasoner
+  cors:
+    allowed-origins:
+      - http://localhost:1420
+      - http://127.0.0.1:1420
+      - tauri://localhost
+      - http://localhost:8010
